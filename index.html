@@ -59,9 +59,10 @@
 </div>
 <section id="debrief" class="panel pad"><p class="eyebrow">LAB DEBRIEF</p><h2 id="debrief-title" tabindex="-1">Fish and fetal pig: compare the evidence</h2><p>Record answers separately for your instructor. Use at least one observation from the specimen for each answer.</p>
 <ol><li>Trace food from mouth to intestine in both animals. Name two shared organs and explain where pyloric ceca fit into the fish digestive tract.</li><li>Trace blood from the fish ventricle to its next destination. Compare that route with the pig after birth, and explain how the pig gets oxygen before birth.</li><li>Explain how you distinguish a swim bladder from a urinary bladder by location and function.</li><li>Choose a structure that was hidden when the body wall first opened. Explain which layer you moved and compare the structure’s location in the pig.</li><li>Compare paired fins with paired limbs, and identify one fish structure that the pig lacks.</li></ol>
+<div id="completion" style="margin:18px 0;padding:14px;border:2px solid #14584a;border-radius:10px"><h3 style="margin:0 0 .4rem">Completion code</h3><p id="comp-info" class="note"></p><p><label>Your name <input id="stu" type="text" autocomplete="name" style="min-height:40px;font:inherit;padding:4px 8px"></label></p><p><label><input id="ack" type="checkbox" style="width:1.2rem;height:1.2rem"> I recorded my answers to the debrief questions.</label></p><p><label for="code">Your completion code</label><br><input id="code" type="text" readonly style="width:100%;min-height:40px;font:inherit;padding:4px 8px" placeholder="Appears when everything is complete"></p><button id="copycode" type="button" class="primary" disabled>Copy completion code</button><p id="code-status" role="status"></p></div>
 <p id="summary"></p><button id="copy" type="button">Copy progress summary</button> <button id="reset" type="button">Reset lab</button><p id="copy-status" role="status"></p>
 </section>
-<footer><details><summary>Specimen credits and anatomy references</summary><p>Primary photographs: Sabrina Cornish and Carol Wenzel (2019), <a href="https://repository.lib.bcit.ca/islandora/bony-fish-dissection-images">Bony fish dissection images</a>, British Columbia Institute of Technology; image numbers are shown under each photo. Images resized for the web. <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; BCIT’s records also state noncommercial use. This lab is for noncommercial teaching. <a href="https://repository.lib.bcit.ca/islandora/labelled-bony-fish-pptx">Labeled reference plates</a>.</p><p>Yellow perch reference: Jon Houseman, <a href="https://commons.wikimedia.org/wiki/File:Oste082p_labelled.png">Internal Anatomy of the Perch</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, unmodified. Anatomy references: <a href="https://australian.museum/learn/animals/fishes/fish-dissections/">Australian Museum fish dissection</a> and <a href="https://www.whitman.edu/academics/majors-and-programs/biology/virtual-pig">Whitman College Virtual Pig Dissection</a>.</p></details><p class="note">Progress is saved in this browser when storage is available. It is not sent to Canvas.</p></footer>
+<footer><details><summary>Specimen credits and anatomy references</summary><p>Primary photographs: Sabrina Cornish and Carol Wenzel (2019), <a href="https://repository.lib.bcit.ca/islandora/bony-fish-dissection-images">Bony fish dissection images</a>, British Columbia Institute of Technology; image numbers are shown under each photo. Images resized for the web. <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>; BCIT’s records also state noncommercial use. This lab is for noncommercial teaching. <a href="https://repository.lib.bcit.ca/islandora/labelled-bony-fish-pptx">Labeled reference plates</a>.</p><p>Yellow perch reference: Jon Houseman, <a href="https://commons.wikimedia.org/wiki/File:Oste082p_labelled.png">Internal Anatomy of the Perch</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, unmodified. Anatomy references: <a href="https://australian.museum/learn/animals/fishes/fish-dissections/">Australian Museum fish dissection</a> and <a href="https://www.whitman.edu/academics/majors-and-programs/biology/virtual-pig">Whitman College Virtual Pig Dissection</a>.</p></details><p class="note">Progress is saved in this browser when storage is available. It is not sent to Canvas. When you finish, copy your completion code into the Canvas assignment.</p></footer>
 </main><script>
 'use strict';
 const bcit=(n,short,title,desc,alt,targets,opts={})=>({
@@ -462,6 +463,7 @@ function render(){
   const left=s.targets.filter((_,j)=>!found.has(key(stage,j))).length;
   $('unlock').textContent=left?'Identify '+left+' more to finish this station.':'Station complete. You can return to any unlocked station.';
   $('summary').textContent=summary();
+  updateCode();
 }
 function summary(){return 'BIO 106 fish dissection: '+found.size+'/'+total+' structures identified; '+stages.filter((_,i)=>done(i)).length+'/'+stages.length+' stations complete.';}
 $('hint').addEventListener('click',()=>{
@@ -486,6 +488,25 @@ $('copy').addEventListener('click',async()=>{
   catch{$('copy-status').textContent='Select and copy the progress summary above.';}
 });
 $('reset').addEventListener('click',()=>{if(confirm('Clear your checklist and return to the intact specimen?')){found=new Set();opened=new Set([0]);$('copy-status').textContent='';select(0,true);}});
+// ---- Completion code ----
+const nameKey='bio106-fish-lab-name';
+try{const n=JSON.parse(localStorage.getItem(nameKey)||'null');if(n){$('stu').value=n.name||'';$('ack').checked=!!n.ack;}}catch{}
+function hash(str){let h=2166136261;for(let i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)>>>0;}return h.toString(36).toUpperCase().padStart(6,'0').slice(-6);}
+function updateCode(){
+  const name=$('stu').value.trim(),allDone=found.size===total,ready=allDone&&name&&$('ack').checked;
+  const date=new Date().toLocaleDateString('en-CA');
+  const need=[];if(!allDone)need.push('identify every structure ('+found.size+' of '+total+' so far)');if(!name)need.push('enter your name');if(!$('ack').checked)need.push('confirm your debrief answers');
+  $('comp-info').textContent=ready?'You finished the lab. Copy this code and paste it into the Canvas assignment.':'To get your code: '+need.join('; ')+'.';
+  $('code').value=ready?'BIO106 FISH LAB COMPLETE | '+name+' | '+date+' | '+total+'/'+total+' structures | '+stages.length+'/'+stages.length+' stations | Code '+hash(name.toLowerCase()+'|'+date+'|bio106-fish|'+total):'';
+  $('copycode').disabled=!ready;
+}
+['input','change'].forEach(ev=>{$('stu').addEventListener(ev,()=>{try{localStorage.setItem(nameKey,JSON.stringify({name:$('stu').value,ack:$('ack').checked}));}catch{}updateCode();});$('ack').addEventListener(ev,()=>{try{localStorage.setItem(nameKey,JSON.stringify({name:$('stu').value,ack:$('ack').checked}));}catch{}updateCode();});});
+$('code').addEventListener('focus',()=>$('code').select());
+$('copycode').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText($('code').value);$('code-status').textContent='Completion code copied. Paste it into Canvas.';}
+  catch{$('code').focus();$('code-status').textContent='Press Ctrl+C (Command+C on a Mac) to copy the selected code.';}
+});
+
 select(stage);
 
 </script></body></html>
