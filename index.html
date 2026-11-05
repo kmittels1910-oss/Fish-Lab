@@ -11,6 +11,12 @@
 #flaps [data-grabbable],#grip{pointer-events:auto;cursor:grab;touch-action:none}
 #tray[data-peeling] #flaps [data-grabbable],#tray[data-peeling] #grip{cursor:grabbing}
 #grip text{pointer-events:none;user-select:none}
+#organ-move{position:absolute;inset:0;pointer-events:none}
+#organ-move[hidden]{display:none}
+#organ-photo{display:block;width:100%;height:100%;pointer-events:auto;cursor:grab;user-select:none}
+#organ-grip{position:absolute;transform:translate(-50%,-50%);background:#173a34;color:white;border:2px solid #fff4cb;border-radius:8px;padding:4px 8px;font-size:clamp(.68rem,1.7vw,.94rem);font-weight:700;white-space:nowrap;pointer-events:auto;cursor:grab;user-select:none}
+#tray[data-peeling] #organ-photo,#tray[data-peeling] #organ-grip{cursor:grabbing}
+#under{object-fit:contain;background:#182d2a}
 
 </style></head>
 <body>
@@ -46,7 +52,7 @@
   <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#173a34" stroke="#fff4cb" stroke-width="3"/>
   <text id="grip-label" text-anchor="middle" y="8" fill="white" font-size="25" font-weight="700">Grab skin ↑</text>
 </g>
-</svg><div id="markers" aria-hidden="true"></div><div id="forceps" aria-hidden="true" hidden>
+</svg><div id="organ-move" aria-hidden="true" hidden><img id="organ-photo" alt="" draggable="false"><span id="organ-grip"></span></div><div id="markers" aria-hidden="true"></div><div id="forceps" aria-hidden="true" hidden>
   <svg viewBox="0 0 150 48">
     <defs>
       <linearGradient id="steel" x2="0" y2="1">
@@ -111,20 +117,23 @@ bcit('13','Internal organs','Retract the muscle','Grab the exposed muscle flap a
  ['Gills',79,52,4.1,6,'Look near the head for red-brown, ridged tissue beneath the gill cover.','Gills exchange oxygen and carbon dioxide with water.','Lungs exchange gases after birth. Before birth, gas exchange occurs across the placenta.'],
  ['Liver',67,48,3.8,4,'Look for a pale lobe in front of and above the golden ovary, just behind the gill region.','The liver produces bile and processes and stores nutrients.','The fetal pig has a large, lobed liver immediately behind the diaphragm.']
 ],{specimen:'female yellow croaker',action:'Retract muscle',pull:'Retract muscle',peel:'muscle'}),
-bcit('15','Digestive tract','Move the ovary aside','Compare the folded yellow ovary with the narrow tube and the elongated pink stomach now visible underneath.','Close view of a yellow croaker with the ovary displaced and digestive organs exposed.',[
+bcit('15','Digestive tract','Move the ovary aside','Grab the golden ovary in the photo and drag it upward. The next specimen photograph shows the ovary folded aside and the digestive tract exposed.','Close view of a yellow croaker with the ovary displaced and digestive organs exposed.',[
  ['Stomach',38,58,10,3.5,'Find the long pink sac crossing the exposed yellow ovarian tissue.','The stomach holds food and begins chemical digestion.','The fetal pig stomach is a muscular sac tucked partly under the liver.'],
  ['Intestine',42,79,4.7,3.0,'Follow the slender tube lying diagonally across the lower part of the photograph.','The intestine digests food and absorbs nutrients.','The fetal pig has a coiled small intestine and a distinct large intestine.'],
  ['Ovarian blood vessels',19.2,23,4,6,'Look for branching red lines on the golden lobe folded up at the left.','Blood vessels supply the ovary with oxygen and nutrients.','Blood vessels also supply fetal pig ovaries and other developing organs.']
-],{specimen:'female yellow croaker',action:'Move ovary aside',pull:'Draw the ovary aside'}),
-bcit('25','Dorsal sac','Lift the digestive tract','An alternate view of a female yellow croaker shows the dorsal sac and organs beside the stomach. The head is toward the right.','Close-up of the opened abdomen showing a long silvery sac and displaced organs.',[
+],{specimen:'female yellow croaker',action:'Move ovary aside',pull:'Draw the ovary aside',
+   move:{name:'ovary',clip:'polygon(30% 53%,35% 49%,44% 53%,52% 57%,64% 56%,67% 64%,67% 73%,61% 78%,50% 79%,39% 75%,33% 69%)',x:49,y:66}}),
+bcit('25','Dorsal sac','Lift the digestive tract','Grab the elongated pink stomach and drag it upward to lift the digestive tract. In the next photograph, examine the dorsal sac and the organs near the stomach.','Close-up of the opened abdomen showing a long silvery sac and displaced organs.',[
  ['Swim bladder',32,36.5,13,4,'Find the long, silvery gray sac against the back wall, above the yellow ovarian tissue.','The swim bladder helps regulate buoyancy.','Pigs lack a swim bladder. A urinary bladder stores urine and is a different organ.'],
  ['Pyloric ceca',59,55,6.2,4.6,'Find the pale cluster of short finger-like tubes near the stomach.','Pyloric ceca are blind pouches near the stomach outlet that contribute to digestion and absorption.','The pig cecum is a pouch at the small-to-large intestine junction, a different location.'],
  ['Spleen',43,40,3.4,2.2,'Look for the narrow dark lobe just below the silvery sac, near the middle of the view.','The spleen helps filter blood and supports immune function.','The pig spleen is a flattened organ along the stomach’s greater curvature.']
-],{height:900,specimen:'female yellow croaker',action:'Lift digestive tract',pull:'Move the digestive tract out of the way'}),
-bcit('18','Deep wall','Expose the dorsal body wall','The view now shows the dorsal wall after the swim bladder is displaced. Use the long axis of the cavity to orient the forceps.','Opened yellow croaker after removal of the ovaries, with an exposed dark strip along the dorsal wall.',[
+],{height:900,specimen:'female yellow croaker',action:'Lift digestive tract',pull:'Move the digestive tract out of the way',
+   move:{name:'stomach',clip:'polygon(19% 56%,27% 54%,40% 55%,51% 55%,57% 58%,53% 62%,41% 64%,28% 63%,21% 61%)',x:38,y:58}}),
+bcit('18','Deep wall','Expose the dorsal body wall','Grab the long silvery swim bladder and pull it downward. In the next photograph, look for the dark kidney against the exposed dorsal wall.','Opened yellow croaker after removal of the ovaries, with an exposed dark strip along the dorsal wall.',[
  ['Kidney',23.5,46,14,2.6,'Look for dark elongated tissue against the dorsal wall, above the gut.','The kidney helps regulate water and salts and excrete wastes.','Fetal pigs have paired, bean-shaped kidneys against the dorsal abdominal wall.'],
  ['Displaced swim bladder',19,59,10,3.8,'Look for the long pale sac pulled down just below the dark kidney strip.','Moving the swim bladder exposes the kidney against the dorsal wall.','To see the fetal pig kidneys, move the intestines away from the dorsal wall.']
-],{specimen:'yellow croaker, ovaries removed',action:'Expose the kidney',pull:'Draw the swim bladder aside'}),
+],{specimen:'yellow croaker, ovaries removed',action:'Expose the kidney',pull:'Draw the swim bladder aside',
+   move:{name:'swim bladder',clip:'polygon(14% 39%,21% 33%,31% 32%,48% 29%,57% 29%,57% 34%,51% 39%,37% 42%,22% 43%)',x:33,y:36,down:true}}),
 bcit('04','Gill close-up','Separate a gill arch','Examine the isolated gill from another bony fish specimen. Compare the thick support with the projections on either side.','Isolated gill arch on a dark tray, with two different rows of projections.',[
  ['Gill arch',52,38,9,3,'Find the thick, pale, curved support between the two fringes.','The arch supports the filaments and the rakers.','The pig has embryonic pharyngeal arches, but they do not develop into functional gills.'],
  ['Gill filaments',52,30,12,4.5,'Find the soft, reddish outer fringe above the curved support.','Filaments carry fine lamellae that increase the surface area for gas exchange.','Pig lungs use alveoli to increase the area for gas exchange after birth.'],
@@ -150,6 +159,7 @@ for (const stage of stages) stage.image = embeddedImages[stage.image];
 const $=id=>document.getElementById(id);
 const [tray,specimen,forceps,feedback,pull,reveal,under]=['tray','specimen','forceps','feedback','pull','reveal','under'].map($);
 const [flaps,skinFlap,muscleFlap,grip]=['flaps','skin-flap','muscle-flap','grip'].map($);
+const [organMove,organPhoto,organGrip]=['organ-move','organ-photo','organ-grip'].map($);
 const storeKey='bio106-fish-lab-v2';
 const total=stages.reduce((n,s)=>n+s.targets.length,0);
 const key=(s,t)=>s+':'+t;
@@ -164,6 +174,13 @@ function done(i){return stages[i].targets.every((_,j)=>found.has(key(i,j)));}
 function unlocked(){let i=0;while(i<stages.length-1&&done(i))i++;return i;}
 function tell(message,kind=''){feedback.className=kind;feedback.textContent=message;}
 function button(label,fn){const b=document.createElement('button');b.type='button';b.textContent=label;b.addEventListener('click',fn);return b;}
+function showSpecimen(view){
+  specimen.src=view.image;
+  specimen.width=view.width;
+  specimen.height=view.height;
+  specimen.style.aspectRatio=view.width+' / '+view.height;
+  specimen.alt=view.alt;
+}
 function select(i,focus=false){
   if(i>unlocked())return;
   stage=i;const s=stages[i];target=s.targets.findIndex((_,j)=>!found.has(key(i,j)));if(target<0)target=0;
@@ -171,28 +188,45 @@ function select(i,focus=false){
   delete tray.dataset.peeling;
   delete tray.dataset.grabbing;
   const covered=!!s.pull&&!opened.has(i);
-  const photoWipe=covered&&!s.peel;
-  specimen.src=photoWipe?stages[i-1].image:s.image;
-  specimen.width=s.width;specimen.height=s.height;
-  specimen.style.aspectRatio=s.width+' / '+s.height;
-  specimen.alt=s.alt;
-  reveal.hidden=!photoWipe;
-  if(photoWipe)under.src=s.image;else under.removeAttribute('src');
+  const movingOrgan=covered&&s.move;
+  const previous=stages[i-1];
+  showSpecimen(movingOrgan?previous:s);
+  reveal.hidden=!movingOrgan;
+  organMove.hidden=!movingOrgan;
+  if(movingOrgan){
+    under.src=s.image;
+    organPhoto.src=previous.image;
+    organPhoto.style.clipPath=s.move.clip;
+    organGrip.style.left=s.move.x+'%';
+    organGrip.style.top=s.move.y+'%';
+    organGrip.textContent='Grab '+s.move.name+(s.move.down?' ↓':' ↑');
+  }else{
+    under.removeAttribute('src');
+    organPhoto.removeAttribute('src');
+  }
   pull.value=0;updatePull();
   $('opening').hidden=!covered;
   $('pull-label').textContent=s.pull||'';
   $('stage-kicker').textContent='STATION '+String(i+1).padStart(2,'0')+' / '+String(stages.length).padStart(2,'0');
   $('stage-title').textContent=s.title;$('stage-desc').textContent=s.desc;
-  $('caption').textContent=s.credit;
+  $('caption').textContent=movingOrgan?previous.credit:s.credit;
   if(!covered)place(...dock);
-  tell(covered&&s.peel?'Grab the '+s.peel+' flap and pull it upward. You can also use the slider or Reveal fully.':covered?'Pull the layer back to begin checking structures.':'Pick up the silver forceps and release the tips on '+s.targets[target][0]+'.');
+  if(movingOrgan)tell('Grab the '+s.move.name+' and drag '+(s.move.down?'downward':'upward')+'. You can also use the slider or Reveal fully.');
+  else if(covered)tell('Grab the '+s.peel+' flap and pull it upward. You can also use the slider or Reveal fully.');
+  else tell('Pick up the silver forceps and release the tips on '+s.targets[target][0]+'.');
   render();save();if(focus)$('stage-title').focus();
 }
 function updatePull(){
   const percent=Number(pull.value);
   $('amount').value=percent+'%';
-  reveal.style.clipPath='inset(0 '+(100-percent)+'% 0 0)';
-  const layer=stages[stage].peel;
+  const current=stages[stage];
+  if(current.move&&!opened.has(stage)){
+    const direction=current.move.down?1:-1;
+    organMove.style.transform='translateY('+(direction*percent*.36)+'%)';
+    organMove.style.opacity=String(1-Math.max(0,percent-65)/35);
+    reveal.style.opacity=String(Math.max(0,percent-25)/75);
+  }
+  const layer=current.peel;
   const covered=layer&&!opened.has(stage);
   flaps.toggleAttribute('hidden',!layer||(!covered&&layer==='muscle'));
   skinFlap.toggleAttribute('data-hidden',!covered||layer!=='skin');
@@ -214,14 +248,17 @@ function updatePull(){
 function openLayer(){
   if(opened.has(stage))return;
   opened.add(stage);
-  specimen.src=stages[stage].image;
+  showSpecimen(stages[stage]);
+  $('caption').textContent=stages[stage].credit;
   reveal.hidden=true;
+  organMove.hidden=true;
   under.removeAttribute('src');
+  organPhoto.removeAttribute('src');
   $('opening').hidden=true;
   pull.value=100;
   updatePull();
   place(...dock);
-  tell(stages[stage].peel==='skin'?'Skin retracted. Identify the exposed trunk muscle.':stages[stage].peel==='muscle'?'Muscle retracted. Identify the structures in the opened cavity.':'Layer revealed. Find the highlighted checklist target.');
+  tell(stages[stage].peel==='skin'?'Skin retracted. Identify the exposed trunk muscle.':stages[stage].peel==='muscle'?'Muscle retracted. Identify the structures in the opened cavity.':'The deeper specimen photograph is now visible. Identify the highlighted structure.');
   render();save();tray.focus();
 }
 pull.addEventListener('input',updatePull);
@@ -263,12 +300,13 @@ function dragTip(e){
 tray.addEventListener('pointerdown',e=>{
   if(e.button!==0||!e.isPrimary)return;
   if(!available()){
-    if(!stages[stage].peel)return;
-    if(!e.target.closest('#grip,[data-grabbable]')){
-      tell('Grab the marked flap on the specimen and drag upward.','bad');
+    const organ=stages[stage].move;
+    const handle=organ?'#organ-photo,#organ-grip':'#grip,[data-grabbable]';
+    if(!e.target.closest(handle)){
+      tell('Grab the marked '+(organ?.name||'flap')+' on the specimen and drag '+(organ?.down?'downward.':'upward.'),'bad');
       return;
     }
-    peelDrag={id:e.pointerId,start:fromPointer(e)[1],progress:Number(pull.value)};
+    peelDrag={id:e.pointerId,start:fromPointer(e)[1],progress:Number(pull.value),direction:organ?.down?1:-1};
     tray.dataset.peeling='';
     tray.setPointerCapture(e.pointerId);
     return;
@@ -284,7 +322,7 @@ tray.addEventListener('pointerdown',e=>{
 });
 tray.addEventListener('pointermove',e=>{
   if(peelDrag?.id===e.pointerId){
-    const distance=peelDrag.start-fromPointer(e)[1];
+    const distance=(fromPointer(e)[1]-peelDrag.start)*peelDrag.direction;
     pull.value=Math.round(Math.max(0,Math.min(100,peelDrag.progress+distance*3)));
     updatePull();
     return;
@@ -296,7 +334,7 @@ tray.addEventListener('pointerup',e=>{
     peelDrag=null;
     delete tray.dataset.peeling;
     if(Number(pull.value)>=85)openLayer();
-    else tell('Keep pulling upward to retract the flap fully.');
+    else tell('Keep pulling '+(stages[stage].move?.down?'downward':'upward')+' to finish the reveal.');
     return;
   }
   if(dragging?.id!==e.pointerId)return;
