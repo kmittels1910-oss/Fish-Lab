@@ -4,7 +4,7 @@
 :root{color-scheme:light;--paper:#f5f5ef;--panel:#fffef8;--ink:#172c2d;--muted:#425a56;--green:#165047;--line:#cbd8d0;--gold:#f3d899;font:16px/1.55 system-ui,sans-serif}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink)}a{color:#14584a;text-underline-offset:3px}header{background:#102e2e;color:#f8fbf4}.shell{max-width:1320px;margin:auto;padding-inline:clamp(14px,3vw,42px)}.mast{display:flex;align-items:center;gap:14px;padding-block:13px;font-weight:650}.mast a{color:#d5eee3;margin-left:auto}.badge{font-size:.76rem;letter-spacing:.1em;background:var(--gold);color:#253b34;padding:4px 9px;border-radius:4px}.intro{padding:32px 0 15px}.intro p{max-width:70ch}h1,h2,p{margin:0 0 .55rem}h1{font:700 clamp(2.4rem,5vw,4.7rem)/1.05 Georgia,serif;letter-spacing:-.04em}h2{font:700 1.65rem/1.16 Georgia,serif}.eyebrow{font-size:.73rem;font-weight:850;letter-spacing:.16em;color:var(--green)}.note,figcaption,#controls{font-size:.89rem;color:var(--muted)}.meter{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}.meter progress{height:.8rem;accent-color:var(--green);width:min(220px,35vw)}
 #stages{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}button{font:inherit;font-weight:650;cursor:pointer;border:1px solid #a9beb3;background:#f6faf4;color:var(--ink);border-radius:7px;padding:7px 12px;min-height:40px}button:hover:not(:disabled){background:#e4f0e7}button:disabled{cursor:default;opacity:.65}button[aria-current=step],.primary{background:var(--green);color:#fff;border-color:var(--green)}button[aria-current=step]:hover,.primary:hover:not(:disabled){background:#103c35}button:focus-visible,a:focus-visible,#tray:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #b46611;outline-offset:3px}
-.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(255px,315px);align-items:start;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}.pad{padding:clamp(12px,2vw,20px)}figure{margin:0;background:#122724}figcaption{color:#e5eee7;padding:7px 14px}figcaption a{color:inherit}#tray{position:relative;isolation:isolate;cursor:crosshair;touch-action:none;overflow:hidden;background:#182d2a}#tray>img,#under{width:100%;height:auto;display:block;user-select:none}#reveal,#markers{position:absolute;inset:0;pointer-events:none}#under{height:100%;object-fit:fill}#reveal[hidden],#forceps[hidden]{display:none}#forceps{position:absolute;width:clamp(48px,9%,85px);transform:translate(-94.44%,-91.43%);pointer-events:none;z-index:3;filter:drop-shadow(1px 2px 3px #000)}#forceps svg{display:block;width:100%}.pin{position:absolute;transform:translate(-50%,-50%);border:2px solid #fff;background:#16483d;color:white;display:grid;place-items:center;width:23px;height:23px;border-radius:50%;box-shadow:0 0 0 2px #18302b;font-size:14px}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(255px,315px);align-items:start;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}.pad{padding:clamp(12px,2vw,20px)}figure{margin:0;background:#122724}figcaption{color:#e5eee7;padding:7px 14px}figcaption a{color:inherit}#tray{position:relative;isolation:isolate;cursor:default;touch-action:none;overflow:hidden;background:#182d2a}#tray>img,#under{width:100%;height:auto;display:block;user-select:none}#reveal,#markers{position:absolute;inset:0;pointer-events:none}#under{height:100%;object-fit:fill}#reveal[hidden],#forceps[hidden]{display:none}#forceps{position:absolute;width:clamp(84px,17%,150px);transform:translate(-3.333333%,-50%);cursor:grab;touch-action:none;z-index:3;filter:drop-shadow(1px 2px 2px #0009)}#forceps svg{display:block;width:100%;pointer-events:none}#tray[data-grabbing] #forceps{cursor:grabbing}.pin{position:absolute;transform:translate(-50%,-50%);border:2px solid #fff;background:#16483d;color:white;display:grid;place-items:center;width:23px;height:23px;border-radius:50%;box-shadow:0 0 0 2px #18302b;font-size:14px}
 #opening{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:0 0 12px}#opening[hidden]{display:none}#pull{flex:1;min-width:110px;accent-color:var(--green)}#target-label{font-size:1.18rem;font-weight:800}#feedback{min-height:5.5em;background:#edf2ec;border-left:4px solid #7c998b;padding:10px;margin:.7rem 0}#feedback.good{background:#e4f4e8;border-color:#23854e}#feedback.bad{background:#fff0e7;border-color:#a44425}.actions{display:flex;gap:6px;flex-wrap:wrap}#checklist{list-style:none;margin:12px 0;padding:0;display:grid;gap:4px}#checklist button{display:block;width:100%;text-align:left;padding:4px 8px;min-height:34px;background:transparent;border-color:transparent}#checklist button[aria-pressed=true]{background:#e5f0e9;border-color:#a9beb3}#unlock{margin-top:8px}#debrief{margin-top:20px}#debrief li{margin:.45em 0}#choices{display:grid;gap:5px}#choices button{text-align:left}summary{cursor:pointer;font-weight:700}footer{margin:18px 0 36px}footer details p{margin:8px 0}.skip{position:absolute;left:-10000px}.skip:focus{left:12px;top:12px;background:white;padding:8px;z-index:9}@media(max-width:760px){.workspace{grid-template-columns:1fr}.targets{grid-row:1}#checklist{grid-template-columns:repeat(auto-fit,minmax(125px,1fr))}#feedback{min-height:0}}
 #flaps{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 #flaps[hidden],#flaps [data-hidden]{display:none}
@@ -46,10 +46,28 @@
   <rect x="-100" y="-25" width="200" height="50" rx="12" fill="#173a34" stroke="#fff4cb" stroke-width="3"/>
   <text id="grip-label" text-anchor="middle" y="8" fill="white" font-size="25" font-weight="700">Grab skin ↑</text>
 </g>
-</svg><div id="markers" aria-hidden="true"></div><div id="forceps" aria-hidden="true"><svg viewBox="0 0 90 70"><path d="M5 5 L22 7 L69 49 L85 64 L76 61 L17 19 Z M5 5 L8 21 L66 61 L85 64 L70 66 L9 30 Z" fill="#e4ecee" stroke="#102126" stroke-width="2"/><circle cx="85" cy="64" r="3" fill="#ffde91" stroke="#102126"/></svg></div></div><figcaption id="caption"></figcaption></figure>
+</svg><div id="markers" aria-hidden="true"></div><div id="forceps" aria-hidden="true" hidden>
+  <svg viewBox="0 0 150 48">
+    <defs>
+      <linearGradient id="steel" x2="0" y2="1">
+        <stop stop-color="#f3f7fa"/><stop offset=".32" stop-color="#a8b6bc"/>
+        <stop offset=".62" stop-color="#edf1f2"/><stop offset="1" stop-color="#69777e"/>
+      </linearGradient>
+      <pattern id="forceps-ridges" width="4" height="4" patternUnits="userSpaceOnUse">
+        <path d="M1 0v4" stroke="#45535a" stroke-opacity=".55"/>
+      </pattern>
+    </defs>
+    <path d="M5 23.5 53 12 131 5Q148 4 147 21L140 23Q140 13 131 13L54 19 6 25Z"
+          fill="url(#steel)" stroke="#36454b" stroke-width="1"/>
+    <path d="M5 24.5 53 35 131 43Q148 44 147 21L140 22Q140 34 131 35L54 29 6 23Z"
+          fill="url(#steel)" stroke="#36454b" stroke-width="1"/>
+    <path d="M65 11 119 6 120 14 65 19ZM65 30l55 5-1 7-54-5Z" fill="url(#forceps-ridges)"/>
+    <circle class="forceps-tip" cx="5" cy="24" r="3.4" fill="none" stroke="#ffdb81" stroke-width="1.5"/>
+  </svg>
+</div></div><figcaption id="caption"></figcaption></figure>
 <div class="pad">
 <div id="opening" hidden><label for="pull" id="pull-label"></label><input id="pull" type="range" min="0" max="100" value="0"><output id="amount" for="pull">0%</output><button type="button" id="open-all">Reveal fully</button></div>
-<p id="controls">Move the forceps over the photo and click to check. On touch, tap or drag and release. With the keyboard, focus the photo, move with arrow keys, and press Enter to check.</p>
+<p id="controls">Grab the silver forceps by the handle, drag the tips to the requested structure, and release. The tool returns to the edge of the tray after each check. With the keyboard, focus the photo, move with the arrow keys, and press Enter to check. Hold Shift for smaller movements.</p>
 <details id="text-mode"><summary>Use text identification instead</summary><p>Choose the observation that matches the current target. This checks the same structure using descriptions.</p><div id="choices"></div></details>
 </div></section>
 <aside class="panel pad targets" aria-labelledby="target-heading"><p class="eyebrow">STRUCTURE CHECKLIST</p><h2 id="target-heading">Identify</h2><p id="target-label"></p><div id="feedback" role="status" aria-live="polite" aria-atomic="true"></div><div class="actions"><button id="hint" type="button">Hint</button><button id="next-target" type="button">Next structure</button></div><ul id="checklist"></ul><button class="primary" id="next-stage" type="button"></button><p id="unlock" class="note"></p></aside>
@@ -72,7 +90,7 @@ const stages=[
  alt:'Atlantic salmon lying on its side in a white tray, with the head to the left.',
  credit:'Atlantic salmon · instructor-supplied image',
  targets:[
- ['Eye',16.6,45.4,1.3,1.9,'Look for the dark pupil on the side of the head.','The eye detects light and forms images.','Both animals have eyes with lenses and retinas.'],
+ ['Eye',16.6,45.5,1.65,2.2,'Look for the dark pupil on the side of the head.','The eye detects light and forms images.','Both animals have eyes with lenses and retinas.'],
  ['Mouth',12.1,50,2.3,1.7,'Find the opening between the jaws at the front of the head.','The mouth takes in food and admits water for gill ventilation.','The mouth receives food and leads to the pharynx.'],
  ['Operculum (gill cover)',24.3,49.1,2.8,4.3,'Find the broad plate behind the eye, in front of the paired fin.','The operculum protects the gills and helps ventilate them.','The pig has lungs and no gill cover.'],
  ['Pectoral fin',33,54,3.2,2.8,'Find the dark paired fin immediately behind the gill cover.','Pectoral fins help with steering and braking.','Compare these paired appendages with the forelimbs.'],
@@ -135,6 +153,7 @@ const [flaps,skinFlap,muscleFlap,grip]=['flaps','skin-flap','muscle-flap','grip'
 const storeKey='bio106-fish-lab-v2';
 const total=stages.reduce((n,s)=>n+s.targets.length,0);
 const key=(s,t)=>s+':'+t;
+const dock=[6,89];
 let found=new Set(), opened=new Set([0]), stage=0, target=0, point=null, dragging=null, peelDrag=null;
 try {
   const saved=JSON.parse(localStorage.getItem(storeKey)||'null');
@@ -150,6 +169,7 @@ function select(i,focus=false){
   stage=i;const s=stages[i];target=s.targets.findIndex((_,j)=>!found.has(key(i,j)));if(target<0)target=0;
   point=null;forceps.hidden=true;peelDrag=null;dragging=null;
   delete tray.dataset.peeling;
+  delete tray.dataset.grabbing;
   const covered=!!s.pull&&!opened.has(i);
   const photoWipe=covered&&!s.peel;
   specimen.src=photoWipe?stages[i-1].image:s.image;
@@ -164,7 +184,8 @@ function select(i,focus=false){
   $('stage-kicker').textContent='STATION '+String(i+1).padStart(2,'0')+' / '+String(stages.length).padStart(2,'0');
   $('stage-title').textContent=s.title;$('stage-desc').textContent=s.desc;
   $('caption').textContent=s.credit;
-  tell(covered&&s.peel?'Grab the '+s.peel+' flap and pull it upward. You can also use the slider or Reveal fully.':covered?'Pull the layer back to begin checking structures.':'Position the tip of the forceps on the requested structure.');
+  if(!covered)place(...dock);
+  tell(covered&&s.peel?'Grab the '+s.peel+' flap and pull it upward. You can also use the slider or Reveal fully.':covered?'Pull the layer back to begin checking structures.':'Pick up the silver forceps and release the tips on '+s.targets[target][0]+'.');
   render();save();if(focus)$('stage-title').focus();
 }
 function updatePull(){
@@ -199,6 +220,7 @@ function openLayer(){
   $('opening').hidden=true;
   pull.value=100;
   updatePull();
+  place(...dock);
   tell(stages[stage].peel==='skin'?'Skin retracted. Identify the exposed trunk muscle.':stages[stage].peel==='muscle'?'Muscle retracted. Identify the structures in the opened cavity.':'Layer revealed. Find the highlighted checklist target.');
   render();save();tray.focus();
 }
@@ -206,8 +228,14 @@ pull.addEventListener('input',updatePull);
 pull.addEventListener('change',()=>{if(Number(pull.value)===100)openLayer();});
 $('open-all').addEventListener('click',openLayer);
 function available(){return !stages[stage].pull||opened.has(stage);}
-function choose(j){target=j;point=null;forceps.hidden=true;tell(found.has(key(stage,j))?explain(stages[stage].targets[j]):'Place the forceps on this structure, or use a hint.',found.has(key(stage,j))?'good':'');render();}
-function explain(t){return 'Correct. '+t[6]+' Fetal pig: '+t[7];}
+function choose(j){
+  target=j;
+  const t=stages[stage].targets[j];
+  if(available())place(...dock);
+  tell(found.has(key(stage,j))?'Already identified: '+t[0]+'. '+t[6]+' Fetal pig: '+t[7]:'Find '+t[0]+'. Pick up the forceps, or use a hint.');
+  render();
+}
+function explain(t){return 'Correct: '+t[0]+'. '+t[6]+' Fetal pig: '+t[7];}
 function check(ok){
   if(!available()){tell('Reveal the layer before checking an identification.');return;}
   const t=stages[stage].targets[target];
@@ -218,8 +246,15 @@ function place(x,y){
   point=[Math.max(0,Math.min(100,x)),Math.max(0,Math.min(100,y))];
   forceps.hidden=false;forceps.style.left=point[0]+'%';forceps.style.top=point[1]+'%';
 }
-function hit(){const [,x,y,rx,ry]=stages[stage].targets[target];if(point)check(((point[0]-x)/rx)**2+((point[1]-y)/ry)**2<=1);}
+function hit([tipX,tipY]){
+  const [,x,y,rx,ry]=stages[stage].targets[target];
+  check(((tipX-x)/rx)**2+((tipY-y)/ry)**2<=1);
+}
 function fromPointer(e){const r=tray.getBoundingClientRect();return [(e.clientX-r.left)/r.width*100,(e.clientY-r.top)/r.height*100];}
+function dragTip(e){
+  const [x,y]=fromPointer(e);
+  return [x+dragging.offsetX,y+dragging.offsetY];
+}
 tray.addEventListener('pointerdown',e=>{
   if(e.button!==0||!e.isPrimary)return;
   if(!available()){
@@ -233,7 +268,14 @@ tray.addEventListener('pointerdown',e=>{
     tray.setPointerCapture(e.pointerId);
     return;
   }
-  dragging=e.pointerId;tray.setPointerCapture(e.pointerId);place(...fromPointer(e));
+  if(!forceps.contains(e.target)){
+    tell('Pick up the silver forceps at the lower left. Release the tips on '+stages[stage].targets[target][0]+'.');
+    return;
+  }
+  const [x,y]=fromPointer(e);
+  dragging={id:e.pointerId,offsetX:point[0]-x,offsetY:point[1]-y};
+  tray.dataset.grabbing='';
+  tray.setPointerCapture(e.pointerId);
 });
 tray.addEventListener('pointermove',e=>{
   if(peelDrag?.id===e.pointerId){
@@ -242,7 +284,7 @@ tray.addEventListener('pointermove',e=>{
     updatePull();
     return;
   }
-  if(available()&&(e.pointerType==='mouse'||dragging===e.pointerId))place(...fromPointer(e));
+  if(dragging?.id===e.pointerId)place(...dragTip(e));
 });
 tray.addEventListener('pointerup',e=>{
   if(peelDrag?.id===e.pointerId){
@@ -252,15 +294,24 @@ tray.addEventListener('pointerup',e=>{
     else tell('Keep pulling upward to retract the flap fully.');
     return;
   }
-  if(dragging!==e.pointerId)return;
-  dragging=null;const [x,y]=fromPointer(e);if(x>=0&&x<=100&&y>=0&&y<=100){place(x,y);hit();}
+  if(dragging?.id!==e.pointerId)return;
+  const tip=dragTip(e);
+  dragging=null;
+  delete tray.dataset.grabbing;
+  hit(tip);
+  place(...dock);
 });
-tray.addEventListener('lostpointercapture',()=>{dragging=null;peelDrag=null;delete tray.dataset.peeling;});
+tray.addEventListener('lostpointercapture',()=>{
+  if(dragging)place(...dock);
+  dragging=null;peelDrag=null;
+  delete tray.dataset.peeling;
+  delete tray.dataset.grabbing;
+});
 tray.addEventListener('keydown',e=>{
   if(!available())return;
   const delta={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[e.key];
   if(delta){e.preventDefault();const [x,y]=point||[50,50];const step=e.shiftKey?0.5:2;place(x+delta[0]*step,y+delta[1]*step);}
-  if(e.key==='Enter'||e.key===' '){e.preventDefault();if(!point)place(50,50);hit();}
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();hit(point);}
 });
 function makeChoices(s){
   const wanted=s.targets[target];
